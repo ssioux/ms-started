@@ -6,9 +6,9 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-export class BasicEntity {
-  @PrimaryGeneratedColumn()
-  id?: number;
+export abstract class BasicEntity {
+  @PrimaryGeneratedColumn('uuid')
+  id?: string;
 
   @CreateDateColumn({
     name: 'created_at',

@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as _ from 'lodash';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import configuration from 'config/app-configuration';
+import { CommonModule } from './common/basic-resource/common.module';
 
 // ⚠️ Current execution Enviroment
 export const ENV = process.env.NODE_ENV;
@@ -29,6 +30,7 @@ export const ENV = process.env.NODE_ENV;
         };
       },
     }),
+    CommonModule,
   ],
   controllers: [],
   providers: [],

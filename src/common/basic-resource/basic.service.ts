@@ -1,9 +1,9 @@
-import { HttpException, HttpStatus } from '@nestjs/common';
+import { HttpException, HttpStatus, Logger } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { ERRORS } from '../error-handler/exception.enum';
 
-export class BasicService {
-  constructor(readonly repo: Repository<any>) {}
+export abstract class BasicService {
+  constructor(readonly repo: Repository<any>, readonly logger: Logger) { }
 
   async create(entity: any) {
     return await this.repo.save(this.repo.create(entity));
